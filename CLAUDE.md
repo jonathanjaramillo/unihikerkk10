@@ -14,6 +14,22 @@ reference material lives once at this level.
   framework from PlatformIO (`~/.platformio/packages/`), not from this folder.
   Do not edit.
 
+## Shared drivers
+
+`libs/` holds drivers for the K10's external devices, shared across projects. They are
+plain files tracked in this repo (not submodules). Each is a PlatformIO library with its
+own `library.json`, README and `examples/`.
+
+- `libs/k10-gamecontroller/` — I2C game controller (joystick + A/B/C/D/OK buttons).
+
+A project uses them with `lib_extra_dirs = ../libs` in its `platformio.ini`. Only the
+libraries a project actually includes are linked. Put new reusable device drivers here;
+keep project-specific code (algorithms, app logic) in the project. Note that a project
+cloned on its own, without this repo, won't find these libraries.
+
+`esp-doom` and `esp32-SfM` predate `libs/` and still carry their own copies of the game
+controller driver.
+
 ## Projects
 
 - `esp-doom/` — Doom port for the K10.
@@ -25,9 +41,10 @@ bump the submodule pointer here.
 ## Adding a project
 
 1. Create a folder here, `git init`, and build with PlatformIO
-   (`platform = https://github.com/DFRobot/platform-unihiker.git`, `board = unihiker_k10`).
-2. Don't copy the framework, docs or schematic into the project; link to `../hardware`
-   and `../unihiker-docs` from its README/notes if needed.
+   (`platform = https://github.com/DFRobot/platform-unihiker.git`, `board = unihiker_k10`,
+   `lib_extra_dirs = ../libs`).
+2. Don't copy the framework, docs, schematic or shared drivers into the project; link to
+   `../hardware`, `../unihiker-docs` and `../libs` from its README/notes if needed.
 3. Push the project to its own remote, then `git submodule add <url> <folder>` here.
 
 ## Cloning

@@ -1,0 +1,9 @@
+{
+  "name": "k10-gamecontroller",
+  "version": "0.1.0",
+  "description": "I2C driver for the game controller (joystick + A/B/C/D/OK buttons) used with the UNIHIKER K10",
+  "keywords": "unihiker, k10, esp32, i2c, joystick, gamepad, controller",
+  "frameworks": "arduino",
+  "platforms": "unihiker",
+  "headers": "GameController.h"
+}
