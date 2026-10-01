@@ -1,0 +1,12 @@
+[submodule "framework-arduinounihiker"]
+	path = framework-arduinounihiker
+	url = https://github.com/DFRobot/framework-arduinounihiker.git
+[submodule "unihiker-docs"]
+	path = unihiker-docs
+	url = https://github.com/UNIHIKER/unihiker-docs.git
+[submodule "esp-doom"]
+	path = esp-doom
+	url = https://github.com/jonathanjaramillo/unihiker-k10-DOOM.git
+[submodule "esp32-SfM"]
+	path = esp32-SfM
+	url = https://github.com/jonathanjaramillo/esp-vision.git
